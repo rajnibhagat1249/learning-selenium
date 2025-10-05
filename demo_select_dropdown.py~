@@ -1,0 +1,45 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
+import time
+
+# class DemoDropdownSingleSelect():
+#     def demo_dropdown(self):
+#         driver = webdriver.Chrome()
+#         driver.get("https://www.salesforce.com/in/form/signup/freetrial-service/")
+#         time.sleep(4)
+#         Var1 = driver.find_element(By.NAME,"UserTitle")
+#         dropdown = Select(Var1)
+#
+#         dropdown.select_by_visible_text("PR Manager")
+#         time.sleep(3)
+#
+#         dropdown.select_by_value("Sales_Manager_ANZ")
+#         time.sleep(3)
+#
+#         dropdown.select_by_index(3)
+#         time.sleep(3)
+#
+#
+#
+# dddemo=DemoDropdownSingleSelect()
+# dddemo.demo_dropdown()
+
+
+driver = webdriver.Chrome()
+
+driver.get("https://www.salesforce.com/in/form/signup/freetrial-service/")
+time.sleep(10)
+driver.find_element(By.XPATH,"//button[@id='rejectInvite']").click()
+time.sleep(5)
+
+Var1 = driver.find_element(By.NAME,"UserTitle")
+dropdown = Select(Var1)
+
+# dropdown.select_by_visible_text("PR Manager")
+# time.sleep(3)
+dropdown.select_by_value("Sales_Manager_ANZ")
+time.sleep(3)
+
+dropdown.select_by_index(3)
+time.sleep(3)

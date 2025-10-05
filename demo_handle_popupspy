@@ -1,0 +1,27 @@
+from time import sleep
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
+import time
+
+class Demoiframe():
+    def multiple_iframe(self):
+        driver = webdriver.Chrome()
+        driver.get("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_iframe_frameborder_css")
+        driver.maximize_window()
+
+        # driver.switch_to.frame('frame_name')
+        # driver.switch_to.frame(1)
+        # driver.switch_to.frame(driver.find_elements(By.TAG_NAME, "iframe")[0])
+        # driver.switch_to.parent_frame()
+
+        driver.switch_to.frame(driver.find_element(By.XPATH,"//iframe[@id='iframeResult']"))
+        driver.switch_to.frame(0)
+        driver.find_element(By.XPATH,"//a[@class='user-anonymous tnb-signup-btn w3-bar-item w3-button w3-right ws-green ws-hover-green ga-top ga-top-signup']").click()
+        sleep(4)
+
+
+
+iframe=Demoiframe()
+iframe.multiple_iframe()

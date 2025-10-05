@@ -1,0 +1,18 @@
+from time import sleep
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+
+class Demo_Screenshot():
+    def screen_shot(self):
+        driver = webdriver.Edge()
+        driver.get("https://secure.yatra.com/social/common/yatra/signin.htm")
+        var1 = driver.find_element(By.XPATH,"//button[@id='login-continue-btn']").click()
+        var1.screenshot("C:\\Python-Selenium\\error1.png")
+        sleep(4)
+        driver.save_screenshot("error2.png")
+        driver.get_screenshot_as_file("C:\\Python-Selenium\\error3.png")
+
+demo_screen_shot = Demo_Screenshot()
+demo_screen_shot.screen_shot()

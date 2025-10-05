@@ -1,0 +1,21 @@
+from time import sleep
+
+from selenium import webdriver
+from selenium.webdriver import ActionChains
+from selenium.webdriver.common.by import By
+
+
+class doubleRightClick():
+    def double_right_click(self):
+        driver = webdriver.Chrome()
+        driver.get("https://demo.guru99.com/test/simple_context_menu.html")
+        driver.maximize_window()
+        # ActionChains(driver).context_click(driver.find_element(By.XPATH, "//span[@class='context-menu-one btn btn-neutral']")).perform()
+        # sleep(3)
+        # driver.find_element(By.XPATH, "//span[normalize-space()='Copy']").click()
+        # sleep(2)
+        ActionChains(driver).double_click(driver.find_element(By.XPATH, "//button[normalize-space()='Double-Click Me To See Alert']")).perform()
+        sleep(3)
+
+doubleRight = doubleRightClick()
+doubleRight.double_right_click()

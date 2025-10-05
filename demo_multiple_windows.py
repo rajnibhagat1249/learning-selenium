@@ -1,0 +1,32 @@
+from time import sleep
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
+import time
+
+class Demomultiplewindows():
+    def multiple_window(self):
+        driver = webdriver.Chrome()
+        driver.get("https://www.yatra.com")
+        driver.maximize_window()
+        parent_window_handler = driver.current_window_handle
+        print(parent_window_handler)
+        driver.find_element(By.XPATH, "//img[@alt='Upto 12% OFF (up to Rs 1,500)']").click()
+        all_handlers = driver.window_handles
+        print(all_handlers)
+        for handle in all_handlers:
+            if handle != parent_window_handler:
+                driver.switch_to.window(handle)
+                driver.find_element(By.XPATH, "//span[normalize-space()='Luxury Trains']").click()
+                time.sleep(4)
+                driver.close()
+                sleep(4)
+                break
+        driver.switch_to.window(parent_window_handler)
+        sleep(4)
+
+
+
+mpw=Demomultiplewindows()
+mpw.multiple_window()

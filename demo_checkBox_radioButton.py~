@@ -1,0 +1,24 @@
+from time import sleep
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+class demoCheckBox():
+    def check_box(self):
+        driver = webdriver.Edge()
+        driver.get("https://www.sugarcrm.com/au/request-demo")
+        sleep(2)
+        driver.find_element(By.XPATH,"//button[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll']").click()
+        sleep(2)
+        driver.find_element(By.ID,"doi0").click()
+        sleep(4)
+        var1 = driver.find_element(By.ID, "doi0").is_selected()
+        print(var1)
+        driver.find_element(By.ID, "doi0").click()
+        Var2 = driver.find_element(By.ID, "doi0").is_selected()
+        print(Var2)
+        sleep(4)
+
+CheckBox = demoCheckBox()
+CheckBox.check_box()

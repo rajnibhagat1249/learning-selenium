@@ -1,0 +1,23 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+# class demoFindElementByID():
+#     def locate_By_ID(self):
+#         driver = webdriver.Chrome()
+#         driver.get("https://www.amazon.in/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.in%2F%3Fref_%3Dnav_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=inflex&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0")
+#         driver.maximize_window()
+#         driver.find_element(By.ID,"ap_email").send_keys("test@example.com")
+#         time.sleep(10)
+# finndbyid=demoFindElementByID()
+# finndbyid.locate_By_ID()
+
+class demoFindElementByXPath():
+    def locate_By_XPath(self):
+        driver = webdriver.Chrome()
+        driver.get("https://www.amazon.in/gp/product/B0C9JFM6X6/ref=ewc_pr_img_3?smid=A1K6XQ7KUWCZYH&th=1")
+        driver.maximize_window()
+        driver.find_element(By.XPATH,"//input[@id='twotabsearchtextbox']").send_keys("candy")
+        time.sleep(10)
+findbyXPath=demoFindElementByXPath()
+findbyXPath.locate_By_XPath()

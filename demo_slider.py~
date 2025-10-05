@@ -1,0 +1,24 @@
+from time import sleep
+
+from selenium import webdriver
+from selenium.webdriver import ActionChains
+from selenium.webdriver.common.by import By
+
+
+class demoSlider():
+    def double_slider(self):
+        driver = webdriver.Edge()
+        driver.get("https://www.snapdeal.com/products/beauty-bath-shower?sort=plrty")
+        driver.maximize_window()
+        elem1 = driver.find_element(By.XPATH, "//a[contains(@class,'left-handle')]")
+        elem2 = driver.find_element(By.XPATH, "//a[contains(@class,'right-handle')]")
+
+        ActionChains(driver).drag_and_drop_by_offset(elem1, 60, 0).perform()
+        sleep(3)
+        ActionChains(driver).drag_and_drop_by_offset(elem2, -60, 0).perform()
+        sleep(3)
+        ActionChains(driver).click_and_hold(elem1).pause(1).move_by_offset(-50, 0).release().perform()
+        sleep(3)
+slider = demoSlider()
+slider.double_slider()
+

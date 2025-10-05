@@ -1,0 +1,23 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+# class demoFindElementByID():
+#     def locate_By_ID(self):
+#         driver = webdriver.Chrome()
+#         driver.get("https://www.amazon.in/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.in%2F%3Fref_%3Dnav_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=inflex&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0")
+#         driver.maximize_window()
+#         driver.find_element(By.ID,"ap_email").send_keys("test@example.com")
+#         time.sleep(10)
+# finndbyid=demoFindElementByID()
+# finndbyid.locate_By_ID()
+
+class demoFindElementBycssSelector():
+    def locate_By_cssSelector(self):
+        driver = webdriver.Chrome()
+        driver.get("https://www.amazon.in/")
+        driver.maximize_window()
+        driver.find_element(By.CSS_SELECTOR,"#twotabsearchtextbox").send_keys("candy")
+        time.sleep(10)
+findbycssSelector=demoFindElementBycssSelector()
+findbycssSelector.locate_By_cssSelector()
